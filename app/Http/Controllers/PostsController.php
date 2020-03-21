@@ -16,14 +16,35 @@ class PostsController extends Controller
         $this->middleware('auth');
     }
     
-    public function index()
+    public function index(Request $request)
     {
-        $posts = Post::limit(10)
-            ->orderBy('created_at', 'desc')
-            ->get();
+        if($request->has('keyword')){
+          $data = [];
+          if(\Auth::check()){
+            $user = \Auth::user();
+            $posts = $user->posts()->where('shop_name', 'like', '%'.$request->get('keyword').'%')->orWhere('shop_type', 'like', '%'.$request->get('keyword').'%')->paginate(10);
             
-         // テンプレート「post/index.blade.php」を表示します。
-        return view('post/index', ['posts' => $posts]);
+            $data = [
+                'user' => $user,
+                'posts' => $posts,
+            ];
+          }
+        }else{
+           $data = [];
+           if(\Auth::check()){
+              $user = \Auth::user();
+              $posts = $user->posts()->orderBy('created_at', 'desc')->paginate(10);
+            
+              $data = [
+                  'user' => $user,
+                  'posts' => $posts,
+              ];
+            } 
+        }
+        
+        
+        
+        return view('post/index', $data);
     }
     
     public function new()

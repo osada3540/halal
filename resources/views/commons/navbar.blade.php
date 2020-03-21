@@ -11,13 +11,12 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-md-auto align-items-center">
             <li>
-              <a class="btn btn-primary r-1" href="/posts/new">Post</a>
-            </li>
-            <li>
-              <a class="btn btn-primary " href="/users/{{ Auth::user()->id }}">My Profile</a>
+              <a class="btn btn-primary" href="/posts/new">Post</a>
+              
             </li>
           </ul>
         </div>
-      </div>
     </nav>
 </header>
+
+
