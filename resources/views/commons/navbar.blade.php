@@ -5,20 +5,19 @@
             <input type="text" name="keyword">
             <input type="submit" value="商品検索">
         </form>
-         
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
-            <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
         </button>
-        
-        <div class="collapse navbar-collapse" id="nav-bar">
-            <ul class="navbar-nav mr-auto"></ul>
-            <ul class="navbar-nav">
-                <li class="nav-item"><a href="#" class="nav-link">Post</a></li>
-                <li class="nav-item"><a href="/users/{{ Auth::user()->id }}" class="nav-link">Profile</a></li>
-                <li class="nav-item"><a href="/register" class="nav-link">Signup</a></li>
-                <li class="nav-item"><a href="/login" class="nav-link">Login</a></li>
-                
-            </ul>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-md-auto align-items-center">
+            <li>
+              <a class="btn btn-primary r-1" href="/posts/new">Post</a>
+            </li>
+            <li>
+              <a class="btn btn-primary " href="/users/{{ Auth::user()->id }}">My Profile</a>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
 </header>
