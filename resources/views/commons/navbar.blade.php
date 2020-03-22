@@ -13,6 +13,7 @@
           <ul class="navbar-nav ml-md-auto align-items-center">
             <li class="nav-item"><a href="/posts/new" class="nav-link">Post</a></li>
             <li class="nav-item"><a href="/users/{{ Auth::user()->id }}" class="nav-link">My Profile</a></li>
+            <li class="nav-item"><a href="/users/index" class="nav-link">Users</a></li>
           </ul>
         </div>
         @endif

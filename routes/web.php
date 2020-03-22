@@ -21,6 +21,9 @@ Auth::routes();
 
 Route::get('/home', 'PostsController@index');
 
+//ユーザ一覧表示
+Route::get('/users/index', 'UsersController@index');
+
 //プロフィール編集画面
 Route::get('/users/edit', 'UsersController@edit');
 //プロフィール編集画面

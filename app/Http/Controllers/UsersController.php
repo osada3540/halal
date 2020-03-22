@@ -11,17 +11,25 @@ use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
-    //コンストラクタ （このクラスが呼ばれると最初にこの処理をする）
+    
     public function __construct()
     {
-        // ログインしていなかったらログインページに遷移する（この処理を消すとログインしなくてもページを表示する）
         $this->middleware('auth');
+    }
+    
+    public function index()
+    {
+        $users = User::orderBy('id', 'desc')->paginate(10);
+        
+        return view('user.index', [
+            'users' => $users,
+        ]);
     }
     
     public function show($user_id)
     {
-        $user = User::where('id', $user_id)
-        ->firstOrFail();
+        $user = User::find($user_id);
+        
         
         return view('user/show', ['user' => $user]);
     }

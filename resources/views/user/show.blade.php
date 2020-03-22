@@ -20,13 +20,16 @@
           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
         @endif
       </div>
-      <div class="row">
-        <p>
+      <p>
           {{ $user->profile_text }}
-        </p>
-      </div>
+      </p>
+            <ul class="nav nav-tabs nav-justified mb-3">
+                <li class="nav-item"><a href="#" class="nav-link">TimeLine</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Followings</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Followers</a></li>
+            </ul> 
+      
     </div>
   </div>
 </div>
-
 @endsection
