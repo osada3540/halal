@@ -22,7 +22,7 @@ class PostsController extends Controller
           $data = [];
           if(\Auth::check()){
             $user = \Auth::user();
-            $posts = $user->posts()->where('shop_name', 'like', '%'.$request->get('keyword').'%')->orWhere('shop_type', 'like', '%'.$request->get('keyword').'%')->paginate(10);
+            $posts = $user->feed_posts()->where('shop_name', 'like', '%'.$request->get('keyword').'%')->orWhere('shop_type', 'like', '%'.$request->get('keyword').'%')->paginate(10);
             
             $data = [
                 'user' => $user,
@@ -33,7 +33,7 @@ class PostsController extends Controller
            $data = [];
            if(\Auth::check()){
               $user = \Auth::user();
-              $posts = $user->posts()->orderBy('created_at', 'desc')->paginate(10);
+              $posts = $user->feed_posts()->orderBy('created_at', 'desc')->paginate(10);
             
               $data = [
                   'user' => $user,
