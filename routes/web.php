@@ -40,3 +40,11 @@ Route::post('/posts', 'PostsController@store');
 
 //投稿削除機能
 Route::get('/postsdelete/{post_id}', 'PostsController@destroy');
+
+//フォロー、アンフォロー機能
+Route::group(['prefix' => 'users/{id}'], function () {
+    Route::post('follow', 'UserFollowController@store')->name('user.follow');
+    Route::delete('unfollow', 'UserFollowController@destroy')->name('user.unfollow');
+    Route::get('followings', 'UsersController@followings')->name('users.followings');
+    Route::get('followers', 'UsersController@followers')->name('users.followers');
+});

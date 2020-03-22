@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Auth;
+use App\Post;
 
 use Validator;
 
@@ -73,5 +74,35 @@ class UsersController extends Controller
         $user->save();
 
         return redirect('/users/'.$request->id);
+    }
+    
+    public function followings($id)
+    {
+        $user = User::find($id);
+        $followings = $user->followings()->paginate(10);
+        
+        $data = [
+            'user' => $user,
+            'users' => $followings,
+        ];
+        
+        $data += $this->counts($user);
+        
+        return view('user.followings', $data);
+    }
+    
+    public function followers($id)
+    {
+        $user = User::find($id);
+        $followers = $user->followers()->paginate(10);
+        
+        $data = [
+            'user' => $user,
+            'users' => $followers,
+        ];
+        
+        $data += $this->counts($user);
+        
+        return view('user.followers', $data);
     }
 }
