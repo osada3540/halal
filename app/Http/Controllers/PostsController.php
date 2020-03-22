@@ -42,6 +42,8 @@ class PostsController extends Controller
             } 
         }
         
+        $data += $this->counts($user);
+        
         
         
         return view('post/index', $data);

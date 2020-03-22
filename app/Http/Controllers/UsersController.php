@@ -29,9 +29,16 @@ class UsersController extends Controller
     public function show($user_id)
     {
         $user = User::find($user_id);
+        $posts = $user->posts()->orderBy('created_at', 'desc')->paginate(10);
         
+        $data = [
+            'user' => $user,
+            'posts' => $posts,
+        ];
         
-        return view('user/show', ['user' => $user]);
+        $data += $this->counts($user);
+        
+        return view('user/show', $data);
     }
     
     public function edit()
