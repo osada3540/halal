@@ -10,4 +10,9 @@ class Post extends Model
     {
         return $this->belongsTo('App\User');
     }
+    
+    public function favorite_users()
+    {
+        return $this->belongsToMany(User::class, 'favorites', 'post_id','user_id');
+    }
 }
