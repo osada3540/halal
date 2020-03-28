@@ -25,13 +25,11 @@
       
             <ul class="nav nav-tabs nav-justified mb-3">
                 <li class="nav-item"><a href="/users/{{ $user->id }}" class="nav-link {{ Request::is('users/' . $user->id) ? 'active' : '' }}">TimeLine</a></li>
-                <li class="nav-item"><a href="/users/{{ $user->id }}/followings" class="nav-link {{ Request::is('users/*/followings') ? 'active' : '' }}">Followings</a></li>
+                <li class="nav-item"><a href="/users/{{ $user->id}}/followings" class="nav-link {{ Request::is('users/*/followings') ? 'active' : '' }}">Followings</a></li>
                 <li class="nav-item"><a href="/users/{{ $user->id }}/followers" class="nav-link {{ Request::is('users/*/followers') ? 'active' : '' }}">Followers</a></li>
                 <li class="nav-item"><a href="/users/{{ $user->id }}/favorites" class="nav-link {{ Request::is('users/*/favorites') ? 'active' : '' }}">Favorites</a></li>
             </ul> 
-            @if (count($posts) > 0)
-            @include('post.posts', ['posts' => $posts])
-            @endif
+            @include('post.posts',['posts' => $posts])
     </div>
   </div>
 </div>
