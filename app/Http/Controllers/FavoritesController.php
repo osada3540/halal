@@ -13,7 +13,7 @@ class FavoritesController extends Controller
         $this->middleware('auth');
     }
     
-    public function store(Request $request, $id)
+    public function store($id)
     {
         \Auth::user()->favorite($id);
         return back();

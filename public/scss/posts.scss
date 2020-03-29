@@ -21,23 +21,6 @@
   margin: 12px 0;
 }
 
-.love {
-  background-image: url("/images/parts5.png");
-  background-repeat: no-repeat;
-  height: 36px;
-  width: 36px;
-  background-size: 36px !important;
-}
-
-.comment {
-  margin-left: 8px;
-  background-image: url("/images/parts6.png");
-  background-repeat: no-repeat;
-  height: 36px;
-  width: 36px;
-  background-size: 40px !important;
-}
-
 .post-time {
   margin:0;
   color:#999;
@@ -57,4 +40,31 @@
   background-size: 20px !important;
   color: #262626;
   font-size: 20px;
+}
+// ==========ここから追加する==========
+.favorited {
+  background-image: url("/images/parts7.png");
+  background-repeat: no-repeat;
+  height: 36px;
+  width: 36px;
+  background-size: 36px !important;
+  border-style:none;
+}
+
+.favorite {
+  background-image: url("/images/parts5.png");
+  background-repeat: no-repeat;
+  height: 36px;
+  width: 36px;
+  background-size: 36px !important;
+  border-style:none;
+
+}
+
+.hide-text {
+  display: block;
+  overflow: hidden;
+  text-indent: 110%;
+  white-space: nowrap;
+  
 }
