@@ -8,18 +8,20 @@
                </p>
                @else
                <img class="round-img" src="{{ asset('/images/blank_profile.png') }}" alt="..."/>
+               　
                @endif
-                
                 <div class="media-body">
                     <div>
                         {{ $user->name }}
                     </div>
-                    <div>
-                        <p><a href="/users/{{ $user->id }}">View Profile</a></p>
-                    </div>
+                    
                     <div>
                         {{ $user->profile_text }}
                     </div>
+                    <div>
+                        <a href="/users/{{ $user->id }}">View Profile</a>
+                    </div>
+
                 </div>
             </li>
         @endforeach
