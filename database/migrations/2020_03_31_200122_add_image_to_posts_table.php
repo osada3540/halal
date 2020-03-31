@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddProfileTextToUsersTable extends Migration
+class AddImageToPostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddProfileTextToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('profile_text')->nullable();
+        Schema::table('posts', function (Blueprint $table) {
+            $table->longText('image')->nullable();
         });
     }
 
@@ -25,9 +25,8 @@ class AddProfileTextToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('posts', function (Blueprint $table) {
             //
-            $table->string('profile_text');
         });
     }
 }
