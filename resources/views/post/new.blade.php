@@ -25,7 +25,7 @@
             <input type="file" name="photo" accept="image/jpeg,image/gif,image/png" />
           </div>
           <div class="mb-3">
-            <select class="form-control border-0" name="shop_type" value="{{ old('shop_type') }}" />
+            <select class="form-control border-0" name="shop_type"  value="{{ old('shop_type') }}" />
             　<option>北海道</option>
               <option>青森県</option>
               <option>岩手県</option>

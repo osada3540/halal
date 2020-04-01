@@ -57,7 +57,7 @@ class PostsController extends Controller
     public function store(Request $request)
     {
     
-    $validator = Validator::make($request->all() , ['shop_name' => 'required|max:255','photo' => 'required']);
+    $validator = Validator::make($request->all() , ['shop_name' => 'required|max:255','shop_type' => 'required', 'photo' => 'required']);
     
     if ($validator->fails())
         {
